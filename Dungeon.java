@@ -1,8 +1,28 @@
+import java.util.ArrayList;
+
 public class Dungeon {
     private final char[][] dungeonArray;
     private final int height;
     private final int width;
     private final TileManager tileManager;
+    private ArrayList<Things> renderList = new ArrayList<>();
+
+    private void fillRenderList(){
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                switch (dungeonArray[i][j]) {
+                    case 'H' : renderList.add(new DynamicThings(1,1,j * tileManager.getWidth(),i * tileManager.getHeight()));
+                                 break;
+                    case 'W' :  renderList.add(new SolidThings(1,1,j * tileManager.getWidth(),i * tileManager.getHeight()));
+                                break;
+                    case ' ' :  renderList.add(new Things(1,1,j * tileManager.getWidth(),i * tileManager.getHeight()));
+                                break;
+
+                }
+
+            }
+        }
+    }
 
     public Dungeon(int height, int width, TileManager tileManager) {
         this.height = height;
@@ -21,8 +41,10 @@ public class Dungeon {
                 } else {
                     dungeonArray[i][j] = ' '; // Espace à l'intérieur
                 }
+
             }
         }
+        this.fillRenderList();
     }
 
 
@@ -42,6 +64,5 @@ public class Dungeon {
             System.out.println();
         }
     }
-
 }
 

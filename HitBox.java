@@ -3,7 +3,8 @@ public class HitBox extends SolidThings{
     private String name;
 
 
-    public HitBox(double height,double width,double x, double y){  // Dispose
+    public HitBox(double height,double width,double x, double y){// Dispose
+        super((int) height, (int) width, (int)x,(int) y);
         this.height = height;
         this.width = width;
         this.x = x;

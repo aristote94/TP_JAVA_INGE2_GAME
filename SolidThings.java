@@ -4,4 +4,5 @@ public class SolidThings extends Things{
         super(height, width, x, y);
     }
 
+
 }
