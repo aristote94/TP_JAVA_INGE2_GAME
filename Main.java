@@ -1,11 +1,17 @@
 public class Main {
     public static void main(String[] args) {
+        // taille de tuile arbitraire
+        TileManager tileManager = new TileManager(1, 1);
 
+        // position spécifique
+        HitBox heroHitBox = new HitBox(2, 2, 5, 5);
 
-        HitBox a = new HitBox(20,30,3,4);
-        HitBox b = new HitBox(40,12,2000,14);
+        //HitBox other = new HitBox(10, 10, 2, 5);
 
-        System.out.println(a.intersect(b));
+        // hauteur une largeur et le TileManager
+        Dungeon dungeon = new Dungeon(15, 15, tileManager);
+
+        dungeon.displayDungeonInConsole(heroHitBox);
 
     }
 }

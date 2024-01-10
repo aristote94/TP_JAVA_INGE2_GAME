@@ -26,10 +26,10 @@ public class HitBox {
 
 
     public double getX(){
-        return 0;
+        return x;
     }
     public double getY(){
-        return 0;
+        return y;
     }
 
 }
