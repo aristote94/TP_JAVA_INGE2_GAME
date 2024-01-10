@@ -1,4 +1,4 @@
-public class HitBox {
+public class HitBox extends SolidThings{
     private final double height, width, x, y;
     private String name;
 
