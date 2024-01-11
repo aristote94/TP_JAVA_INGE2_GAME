@@ -24,7 +24,12 @@ public final class Hero extends DynamicThings {
             }
         }
         return Hero.instance;
+
+
     }
+
+
+
     // D'autres m´ethodes classiques et non "static".
 
 }

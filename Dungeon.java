@@ -7,6 +7,10 @@ public class Dungeon {
     private final TileManager tileManager;
     private ArrayList<Things> renderList = new ArrayList<>();
 
+    public ArrayList<Things> getRenderList() {
+        return renderList;
+    }
+
     private void fillRenderList(){
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

@@ -1,5 +1,6 @@
 public class Things {
-    private final int height,width,x,y;
+    private final int height,width;
+    protected int x,y;
 
     public Things(int height, int width, int x, int y) {
         this.height = height;

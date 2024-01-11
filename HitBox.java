@@ -1,10 +1,10 @@
-public class HitBox extends SolidThings{
-    private final double height, width, x, y;
+public class HitBox{
+    private final double height, width;
+    private double x, y;
     private String name;
 
 
     public HitBox(double height,double width,double x, double y){// Dispose
-        super((int) height, (int) width, (int)x,(int) y);
         this.height = height;
         this.width = width;
         this.x = x;
@@ -31,6 +31,11 @@ public class HitBox extends SolidThings{
     }
     public double getY(){
         return y;
+    }
+
+    public void move(double dx, double dy){
+        x=x+dx;
+        y=y+dy;
     }
 
 }
