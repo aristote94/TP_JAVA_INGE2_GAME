@@ -8,14 +8,18 @@ public class Main {
 
         //HitBox other = new HitBox(10, 10, 2, 5);
         Hero h = Hero.getInstance();
-        Hero h1 = Hero.getInstance();
-        Hero h2 = Hero.getInstance();
-        Hero h3 = Hero.getInstance();
+
 
         // hauteur une largeur et le TileManager
         Dungeon dungeon = new Dungeon(15, 15, tileManager);
 
+
+
         dungeon.displayDungeonInConsole(heroHitBox);
+
+        h.moveIfPossible(3,3,dungeon);
+        dungeon.displayDungeonInConsole(h.hitBox);
+
 
     }
 }

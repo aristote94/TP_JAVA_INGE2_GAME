@@ -1,6 +1,6 @@
 public class DynamicThings extends AnimatedThings{
 
-    private double speedX,speedY,dx,dy;
+    private double speedX,speedY;
 
 
     public DynamicThings(int height, int width, int x, int y) {
@@ -23,7 +23,7 @@ public class DynamicThings extends AnimatedThings{
 
         if(movePossible){
             this.x=(int) (this.x+dx);
-            this.y=(int) (this.y+dx);
+            this.y=(int) (this.y+dy);
         }
         else {
             hitBox.move(-dx,-dy);
