@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public final class Hero extends DynamicThings {
     private static volatile Hero instance = null;
 
@@ -7,6 +9,10 @@ public final class Hero extends DynamicThings {
     private Hero(){
         super(32,32,50,50);
     };
+    public Hero(int x, int y, Image image) {
+        super(x,y,image);
+
+    }
 
 
     /**

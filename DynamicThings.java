@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class DynamicThings extends AnimatedThings{
 
     private double speedX,speedY;
@@ -5,6 +7,10 @@ public class DynamicThings extends AnimatedThings{
 
     public DynamicThings(int height, int width, int x, int y) {
         super(height, width, x, y);
+    }
+    public DynamicThings(int x, int y, Image image) {
+        super(x,y,image);
+
     }
     public void moveIfPossible(double dx, double dy, Dungeon dungeon) {
 

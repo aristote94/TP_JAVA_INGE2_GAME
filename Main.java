@@ -1,7 +1,20 @@
+import java.awt.*;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+
+
 public class Main {
     public static void main(String[] args) {
+
         // taille de tuile arbitraire
-        TileManager tileManager = new TileManager(1, 1);
+
+        TileManager tileManager = new TileManager(32, 32, "./img/tileSetTest.png");
+        Image tile = tileManager.getTile(32, 32);
+
 
         // position spécifique
         HitBox heroHitBox = new HitBox(2, 2, 5, 5);
