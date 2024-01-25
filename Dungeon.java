@@ -153,7 +153,7 @@ public class Dungeon {
                         break;
 
                     case 'E':
-                        renderList.add(new DynamicThings(tileX, tileY, tileManager.getTile(0,1)));
+                        renderList.add(new DynamicThings(tileX, tileY, tileManager.getTile(1,0)));
                         //renderList.add(new Things(32, 32, tileX, tileY));
                         break;
                     // Ajoutez d'autres cas selon vos besoins
