@@ -8,4 +8,8 @@ public class AnimatedThings extends SolidThings{
         super(x,y,image);
 
     }
+    @Override
+    public void draw(Graphics g){
+
+    }
 }

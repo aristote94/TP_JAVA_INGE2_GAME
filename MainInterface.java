@@ -16,6 +16,10 @@ public class MainInterface extends JFrame {
         //this.getContentPane().add(panel);
         this.setVisible(true);
         this.setSize(new Dimension(400,600));
+        dungeon.displayDungeonInConsole(hero.hitBox);
+        GameRender gameRender = new GameRender(dungeon,hero);
+        while (true)
+           gameRender.paintComponent(getGraphics());
     }
     public static void main(String[]args){
 

@@ -52,9 +52,11 @@ public class Dungeon {
 
     }
     public Dungeon(String filename, TileManager tileManager) {
+        this.height = 11;
+        this.width = 31;
         this.tileManager = tileManager;
-        this.dungeonArray = new char[11][31];
-        initializeDungeon();
+        this.dungeonArray = new char[this.height][this.width];
+        initializeDungeon(filename,tileManager);
         respawnListOfThings();
 
     }
@@ -79,6 +81,7 @@ public class Dungeon {
 
         this.tileManager= tileManager;
 
+
         try {
             FileReader fr = new FileReader(filename);
             // Créer l'objet BufferedReader
@@ -86,11 +89,13 @@ public class Dungeon {
             BufferedReader br = new BufferedReader(fr);
             StringBuffer sb = new StringBuffer();
             String line;
+            int i = 0;
             while((line = br.readLine()) != null)
             {
                 // ajoute la ligne au buffer
                 sb.append(line);
                 sb.append("\n");
+                this.dungeonArray[i++]=line.toCharArray();
             }
             fr.close();
             System.out.println("Contenu du fichier: ");
@@ -100,7 +105,6 @@ public class Dungeon {
         {
             e.printStackTrace();
         }
-
     }
 
 
@@ -126,6 +130,7 @@ public class Dungeon {
     public void respawnListOfThings() {
         renderList.clear(); // Vide la liste existante
 
+
         // Scan la map et génère de nouveaux objets dans la liste
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -134,13 +139,22 @@ public class Dungeon {
 
                 switch (dungeonArray[i][j]) {
                     case 'H':
-                        renderList.add(new DynamicThings(1, 1, tileX, tileY));
+                        //renderList.add(new DynamicThings(32, 32, tileX, tileY));
+                        renderList.add(new DynamicThings(tileX, tileY, tileManager.getTile(1,0)));
                         break;
                     case 'W':
-                        renderList.add(new SolidThings(1, 1, tileX, tileY));
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,0)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
+
                     case ' ':
-                        renderList.add(new Things(1, 1, tileX, tileY));
+                        renderList.add(new Things(tileX, tileY, tileManager.getTile(0,1)));
+                        //renderList.add(new Things(32, 32, tileX, tileY));
+                        break;
+
+                    case 'E':
+                        renderList.add(new DynamicThings(tileX, tileY, tileManager.getTile(0,1)));
+                        //renderList.add(new Things(32, 32, tileX, tileY));
                         break;
                     // Ajoutez d'autres cas selon vos besoins
                 }

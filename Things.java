@@ -19,4 +19,7 @@ public class Things {
         this.width = image.getWidth(null);
         this.height = image.getHeight(null);
     }
+    public void draw(Graphics g){
+        g.drawImage(image,(int) x,(int) y+32,null);
+    }
 }
