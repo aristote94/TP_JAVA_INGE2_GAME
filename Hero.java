@@ -5,6 +5,13 @@ import java.io.File;
 
 public final class Hero extends DynamicThings {
     private static volatile Hero instance = null;
+    private Orientation orientation=Orientation.RIGHT;
+
+
+
+    public Orientation getOrientation(){
+        return orientation;
+    }
 
     /**
      * Constructeur de l'objet.
@@ -40,7 +47,6 @@ public final class Hero extends DynamicThings {
             }
         }
         return Hero.instance;
-
 
     }
 
