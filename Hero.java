@@ -5,18 +5,33 @@ import java.io.File;
 
 public final class Hero extends DynamicThings {
     private static volatile Hero instance = null;
-    private Orientation orientation=Orientation.RIGHT;
+
+    private Boolean isWalking = false;
+
+
+    private Hero() {
+        super(120,120, 48,52);
+        try{this.setImage(ImageIO.read(new File("img/heroTileSheet.png")));}
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public Boolean getWalking() {
+        return isWalking;
+    }
 
 
 
-    public Orientation getOrientation(){
-        return orientation;
+    public void setWalking(boolean walking) {
+        isWalking = walking;
     }
 
     /**
      * Constructeur de l'objet.
      */
-    private Hero(){
+  /*  private Hero(){
         super(32,32,70,100);
         try{
             BufferedImage localImage = ImageIO.read(new File("./img/tileSetTest.png"));
@@ -26,6 +41,8 @@ public final class Hero extends DynamicThings {
             e.printStackTrace();
         }
     };
+    */
+
     /*public Hero(int x, int y, Image image) {
         super(x,y,image);
 

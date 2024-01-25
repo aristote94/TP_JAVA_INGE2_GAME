@@ -3,6 +3,8 @@ import java.awt.*;
 public class DynamicThings extends AnimatedThings{
 
     private double speedX,speedY;
+    private Orientation orientation=Orientation.RIGHT;
+
 
 
     public DynamicThings(int height, int width, int x, int y) {
@@ -12,6 +14,17 @@ public class DynamicThings extends AnimatedThings{
         super(x,y,image);
 
     }
+    public void setImage(Image image){
+        this.image=image;
+    }
+    public Orientation getOrientation(){
+        return orientation;
+    }
+    public void setOrientation(Orientation orientation) {
+        this.orientation = orientation;
+    }
+
+
     public void moveIfPossible(double dx, double dy, Dungeon dungeon) {
 
         Boolean movePossible = true;
@@ -35,6 +48,7 @@ public class DynamicThings extends AnimatedThings{
             hitBox.move(-dx,-dy);
 
         }
+
     }
 
 }
