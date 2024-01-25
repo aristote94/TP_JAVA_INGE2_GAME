@@ -1,4 +1,7 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public final class Hero extends DynamicThings {
     private static volatile Hero instance = null;
@@ -7,12 +10,19 @@ public final class Hero extends DynamicThings {
      * Constructeur de l'objet.
      */
     private Hero(){
-        super(32,32,50,50);
+        super(32,32,70,100);
+        try{
+            BufferedImage localImage = ImageIO.read(new File("./img/tileSetTest.png"));
+            this.image= localImage.getSubimage(32,32,32,32);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     };
-    public Hero(int x, int y, Image image) {
+    /*public Hero(int x, int y, Image image) {
         super(x,y,image);
 
-    }
+    }*/
 
 
     /**

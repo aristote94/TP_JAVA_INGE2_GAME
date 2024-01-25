@@ -10,6 +10,6 @@ public class AnimatedThings extends SolidThings{
     }
     @Override
     public void draw(Graphics g){
-        g.drawImage(image,(int) x,(int) y+32,null);
+        g.drawImage(image,(int) x,(int) y,null);
     }
 }

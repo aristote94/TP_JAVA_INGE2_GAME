@@ -10,11 +10,19 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class Dungeon {
-    private final char[][] dungeonArray;
+    private char[][] dungeonArray;
     private int height;
     private int width;
     private TileManager tileManager;
     private ArrayList<Things> renderList = new ArrayList<>();
+
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 
     public ArrayList<Things> getRenderList() {
         return renderList;
@@ -52,10 +60,10 @@ public class Dungeon {
 
     }
     public Dungeon(String filename, TileManager tileManager) {
-        this.height = 11;
-        this.width = 31;
+        //this.height = 11;
+        //this.width = 31;
         this.tileManager = tileManager;
-        this.dungeonArray = new char[this.height][this.width];
+        //this.dungeonArray = new char[this.height][this.width];
         initializeDungeon(filename,tileManager);
         respawnListOfThings();
 
@@ -88,8 +96,19 @@ public class Dungeon {
 
             BufferedReader br = new BufferedReader(fr);
             StringBuffer sb = new StringBuffer();
-            String line;
-            int i = 0;
+            String line=br.readLine();
+            this.width=line.toCharArray().length;
+            int i = 1;
+            while((line = br.readLine()) != null) {
+                i++;
+            }
+            i++;
+            this.height=i;
+            fr.close();
+            fr = new FileReader(filename);
+            br = new BufferedReader(fr);
+            i=0;
+            this.dungeonArray = new char[this.height][this.width];
             while((line = br.readLine()) != null)
             {
                 // ajoute la ligne au buffer

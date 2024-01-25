@@ -15,11 +15,21 @@ public class MainInterface extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         //this.getContentPane().add(panel);
         this.setVisible(true);
-        this.setSize(new Dimension(400,600));
+        this.setSize(new Dimension(tileManager.getWidth()*dungeon.getWidth(),
+                tileManager.getHeight()*dungeon.getHeight()));
         dungeon.displayDungeonInConsole(hero.hitBox);
         GameRender gameRender = new GameRender(dungeon,hero);
-        while (true)
-           gameRender.paintComponent(getGraphics());
+        this.add(gameRender);
+        /*while (true)
+           gameRender.paintComponent(getGraphics());*/
+        ActionListener rendering = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                repaint();
+            }
+        };
+        Timer animationTimer = new Timer(50,rendering);
+        animationTimer.start();
     }
     public static void main(String[]args){
 

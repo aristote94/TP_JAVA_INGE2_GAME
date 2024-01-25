@@ -17,7 +17,8 @@ public class GameRender extends JPanel {
         for (Things t : dungeon.getRenderList()){
             t.draw(g);
         }
-        hero.draw(g);
+            Hero.getInstance().draw(g);
+
     }
 
 }
