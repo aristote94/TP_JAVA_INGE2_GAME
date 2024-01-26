@@ -52,7 +52,7 @@ public class MainInterface extends JFrame implements KeyListener {
 
     private void moveHero(int speed) {
         checkForSlowZone();
-        speed = isShiftPressed ? 17< : 10;
+
         switch (hero.getOrientation()) {
             case LEFT:
                 hero.moveIfPossible(-speed, 0, dungeon);
@@ -146,6 +146,10 @@ public class MainInterface extends JFrame implements KeyListener {
         if (slowZone.contains(hero.getX(), hero.getY())) {
             applySlowEffect();
         }
+        else if (isShiftPressed) {
+            speed = 17;
+        }
+        else speed = 10;
     }
 
     private void applySlowEffect() {
