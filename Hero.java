@@ -41,10 +41,10 @@ public final class Hero extends DynamicThings {
 
     public void checkEndOfPotion() {
         if (System.currentTimeMillis()-potionTimeStart>1500){
-            scaleFactor=1;
+            scaleFactor=0.8;
             shrinkagePotion=false;
-            this.getHitBox().setWidth(width);
-            this.getHitBox().setHeight(height);
+            this.getHitBox().setWidth(width*scaleFactor);
+            this.getHitBox().setHeight(height*scaleFactor);
         }
     }
 

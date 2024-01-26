@@ -159,12 +159,26 @@ public class Dungeon {
                         renderList.add(new DynamicThings(tileX, tileY, tileManager.getTile(1,0)));
                         break;
                     case 'W':
-                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,0)));
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,6)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+
+                    case 'M':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,13)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'G':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,1)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+
+                    case 'L':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(1,12)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
 
                     case ' ':
-                        renderList.add(new Things(tileX, tileY, tileManager.getTile(0,1)));
+                        renderList.add(new Things(tileX, tileY, tileManager.getTile(1,10)));
                         //renderList.add(new Things(32, 32, tileX, tileY));
                         break;
 

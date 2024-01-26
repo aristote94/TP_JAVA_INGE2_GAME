@@ -20,8 +20,8 @@ public class SolidThings extends Things{
     @Override
     public void draw(Graphics g) {
         super.draw(g);
-        g.setColor(Color.BLACK);
+        /*g.setColor(Color.WHITE);
         g.drawRect((int) hitBox.getX(), (int) hitBox.getY(),
-                (int) hitBox.getWidth(),(int) hitBox.getHeight());
+                (int) hitBox.getWidth(),(int) hitBox.getHeight());*/
     }
 }

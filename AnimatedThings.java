@@ -5,7 +5,7 @@ public class AnimatedThings extends SolidThings{
     protected int currentAttitude;
     protected boolean animationRunning;
 
-    protected double scaleFactor = 1;
+    protected double scaleFactor = 0.8;
 
     private int numberOfAttitude;
     private int numberOfFrames;
