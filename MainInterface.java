@@ -16,6 +16,7 @@ public class MainInterface extends JFrame implements KeyListener {
     private long startTime;
     private JLabel timerLabel;
     private boolean gameStarted;
+    private int s, ms;
 
     public MainInterface() {
         super("Dungeon Game");
@@ -32,7 +33,6 @@ public class MainInterface extends JFrame implements KeyListener {
         setSize(dungeon.getWidth() * tileManager.getWidth(), dungeon.getHeight() * tileManager.getHeight());
         addKeyListener(this);
         setVisible(true);
-
         initializeAnimationTimer();
     }
 
@@ -87,6 +87,8 @@ public class MainInterface extends JFrame implements KeyListener {
                 case KeyEvent.VK_DOWN:
                     startGameTimer();
                     gameStarted = true;
+                    panel.setShowStartMessage(false);
+                    panel.repaint();
                     break;
             }
         }
@@ -119,6 +121,8 @@ public class MainInterface extends JFrame implements KeyListener {
         int lastColumnX = (dungeon.getWidth() - 1) * tileManager.getWidth();
         if (hero.getX() >= lastColumnX) {
             gameTimer.stop();
+            panel.showEndMessage = true;
+            panel.showTimer = true;
         }
     }
 
@@ -129,8 +133,10 @@ public class MainInterface extends JFrame implements KeyListener {
         long elapsedMillis = elapsedTimeMillis % 1000;
 
         timerLabel.setText(String.format("Time: %d.%03d", elapsedSeconds, elapsedMillis));
+        String time = String.format("%02d.%03ds", elapsedSeconds % 60, elapsedMillis);
+        panel.sendsec(elapsedSeconds);
+        panel.setTimeString(time);
     }
-
 
     @Override
     public void keyReleased(KeyEvent e) {
