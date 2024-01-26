@@ -1,35 +1,37 @@
-public class HitBox{
-    private final double height, width;
-    private double x, y;
+package TP2D;
+public class HitBox {
+    private final double height;
+    private final double width;
+
+    private double x;
+    private double y;
+
     private String name;
 
-
-    public HitBox(double height,double width,double x, double y){// Dispose
-        this.height = height;
-        this.width = width;
-        this.x = x;
-        this.y = y;
+    public HitBox(double x, double y, double width, double height){
+        this.x=x;
+        this.y=y;
+        this.height=height;
+        this.width=width;
     }
 
-    public boolean intersect(HitBox anotherHitBox) {
+    public boolean intersect(HitBox anotherHitBox){
+        HitBox upper = (this.y<anotherHitBox.y)?this :anotherHitBox;
+        HitBox leftest = (this.x<anotherHitBox.x)?this :anotherHitBox;
+        boolean xOverlap = Math.abs(x - anotherHitBox.x) < leftest.width;
+        boolean yOverlap = Math.abs(y - anotherHitBox.y) < upper.height;
 
-
-        // estce que rectangles touchent sur x
-        boolean xOverlap = this.x < anotherHitBox.x + anotherHitBox.width &&
-                this.x + this.width > anotherHitBox.x;
-
-        // idem sur y
-        boolean yOverlap = this.y < anotherHitBox.y + anotherHitBox.height &&
-                this.y + this.height > anotherHitBox.y;
+        //boolean xOverlap = Math.abs(x - anotherHitBox.x) < (width + anotherHitBox.width) / 2;
+        //boolean yOverlap = Math.abs(y - anotherHitBox.y) < (height + anotherHitBox.height) / 2;
 
         return xOverlap && yOverlap;
     }
 
-
-    public double getX(){
+    public double getX() {
         return x;
     }
-    public double getY(){
+
+    public double getY() {
         return y;
     }
 
@@ -37,5 +39,4 @@ public class HitBox{
         x=x+dx;
         y=y+dy;
     }
-
 }
