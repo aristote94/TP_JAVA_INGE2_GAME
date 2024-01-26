@@ -12,6 +12,10 @@ public class MainInterface extends JFrame implements KeyListener {
     private Dungeon dungeon;
     private Hero hero;
     private GameRender panel;
+    private Timer gameTimer;
+    private long startTime;
+    private JLabel timerLabel;
+    private boolean gameStarted;
 
     public MainInterface() {
         super("Dungeon Game");
@@ -19,6 +23,9 @@ public class MainInterface extends JFrame implements KeyListener {
         dungeon = new Dungeon("./level1.txt", tileManager);
         hero = Hero.getInstance();
         panel = new GameRender(dungeon, hero);
+        timerLabel = new JLabel("Time: 0");
+        getContentPane().add(timerLabel, BorderLayout.NORTH);
+        gameStarted = false;
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().add(panel);
@@ -56,7 +63,9 @@ public class MainInterface extends JFrame implements KeyListener {
             case DOWN:
                 hero.moveIfPossible(0, speed, dungeon);
                 break;
+
         }
+        StopTimer();
     }
 
     public static void main(String[] args) {
@@ -70,6 +79,18 @@ public class MainInterface extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (!gameStarted) {
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_LEFT:
+                case KeyEvent.VK_RIGHT:
+                case KeyEvent.VK_UP:
+                case KeyEvent.VK_DOWN:
+                    startGameTimer();
+                    gameStarted = true;
+                    break;
+            }
+        }
+
         switch (e.getKeyCode()) {
             case KeyEvent.VK_LEFT:
                 hero.setOrientation(Orientation.LEFT);
@@ -87,6 +108,29 @@ public class MainInterface extends JFrame implements KeyListener {
         hero.setWalking(true);
         repaint();
     }
+
+
+    private void startGameTimer() {
+        startTime = System.currentTimeMillis();
+        gameTimer = new Timer(1, e -> updateTimer()); // Déclenche toutes les millisecondes
+        gameTimer.start();
+    }
+    private void StopTimer() {
+        int lastColumnX = (dungeon.getWidth() - 1) * tileManager.getWidth();
+        if (hero.getX() >= lastColumnX) {
+            gameTimer.stop();
+        }
+    }
+
+
+    private void updateTimer() {
+        long elapsedTimeMillis = System.currentTimeMillis() - startTime;
+        long elapsedSeconds = elapsedTimeMillis / 1000;
+        long elapsedMillis = elapsedTimeMillis % 1000;
+
+        timerLabel.setText(String.format("Time: %d.%03d", elapsedSeconds, elapsedMillis));
+    }
+
 
     @Override
     public void keyReleased(KeyEvent e) {
