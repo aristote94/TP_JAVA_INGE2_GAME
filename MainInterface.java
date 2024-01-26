@@ -16,6 +16,8 @@ public class MainInterface extends JFrame implements KeyListener {
     private long startTime;
     private JLabel timerLabel;
     private boolean gameStarted;
+    private Rectangle slowZone = new Rectangle(2*48+1, 6*48+1, 48, 48);
+    private int speed = 10;
 
     public MainInterface() {
         super("Dungeon Game");
@@ -36,7 +38,6 @@ public class MainInterface extends JFrame implements KeyListener {
     }
 
     private void initializeAnimationTimer() {
-        final int speed = 10;
         ActionListener animationTimer = e -> {
             repaint();
             if (hero.isWalking()) {
@@ -49,6 +50,7 @@ public class MainInterface extends JFrame implements KeyListener {
     }
 
     private void moveHero(int speed) {
+        checkForSlowZone();
         switch (hero.getOrientation()) {
             case LEFT:
                 hero.moveIfPossible(-speed, 0, dungeon);
@@ -133,6 +135,27 @@ public class MainInterface extends JFrame implements KeyListener {
         String time = String.format("%02d.%03ds", elapsedSeconds % 60, elapsedMillis);
         panel.sendsec(elapsedSeconds);
         panel.setTimeString(time);
+    }
+
+    private void checkForSlowZone() {
+        if (slowZone.contains(hero.getX(), hero.getY())) {
+            applySlowEffect();
+        }
+    }
+
+    private void applySlowEffect() {
+        setSpeed(2); // Définis une vitesse réduite
+        Timer slowTimer = new Timer(1000, e -> resetHeroSpeed()); // Durée de 1000 ms (1 seconde)
+        slowTimer.setRepeats(false);
+        slowTimer.start();
+    }
+
+    private void resetHeroSpeed() {
+        setSpeed(10); // Réinitialise la vitesse à la normale
+    }
+
+    private void setSpeed(int speedy){
+        speed = speedy;
     }
 
     @Override

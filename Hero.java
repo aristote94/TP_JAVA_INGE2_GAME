@@ -67,6 +67,9 @@ public final class Hero extends DynamicThings{
     public double getX(){
         return x;
     }
+    public double getY(){
+        return y;
+    }
     public void setWalking(boolean walking) {
         isWalking = walking;
     }
