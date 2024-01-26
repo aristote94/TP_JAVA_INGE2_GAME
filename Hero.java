@@ -10,7 +10,7 @@ public final class Hero extends DynamicThings {
 
 
     private Hero() {
-        super(120,120, 48,52);
+        super(120,120, 48,52,40,3,150);
         try{this.setImage(ImageIO.read(new File("img/heroTileSheet.png")));}
         catch (Exception e){
             e.printStackTrace();

@@ -7,8 +7,8 @@ public class DynamicThings extends AnimatedThings{
 
 
 
-    public DynamicThings(int height, int width, int x, int y) {
-        super(height, width, x, y);
+    public DynamicThings(int height, int width, int x, int y, int numberOfAttitude, int numberOfFrames, double timeBetweenFrames) {
+        super(height, width, x, y,numberOfAttitude,numberOfAttitude,timeBetweenFrames);
     }
     public DynamicThings(int x, int y, Image image) {
         super(x,y,image);
