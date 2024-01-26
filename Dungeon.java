@@ -164,7 +164,7 @@ public class Dungeon {
                         break;
 
                     case 'M':
-                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,13)));
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,14)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
                     case 'G':
@@ -173,12 +173,54 @@ public class Dungeon {
                         break;
 
                     case 'L':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(1,13)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'R':
                         renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(1,12)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
+                    case 'D':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,0)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'T':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,13)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 't':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(1,14)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'F':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(0,7)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'Z':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(1,8)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'V':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,10)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'P':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,12)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                        case 'B':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,11)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                        case 'J':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,13)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+
+
 
                     case ' ':
-                        renderList.add(new Things(tileX, tileY, tileManager.getTile(1,10)));
+                        renderList.add(new Things(tileX, tileY, tileManager.getTile(1,9)));
                         //renderList.add(new Things(32, 32, tileX, tileY));
                         break;
 

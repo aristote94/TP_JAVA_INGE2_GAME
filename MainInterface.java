@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 public class MainInterface extends JFrame implements KeyListener{
-    TileManager tileManager = new TileManager(48,48,"./img/tileSet.png");
+    TileManager tileManager = new TileManager(48,48,"./img/tileSet2.png");
     Dungeon dungeon = new Dungeon("./gameData/level1.txt",tileManager);
     Hero hero = Hero.getInstance();
     public MainInterface() throws HeadlessException {

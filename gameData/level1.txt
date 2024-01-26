@@ -1,12 +1,12 @@
-GWWWWWWWWWWWWWWWWWWWWWWWWWW
-M           W     W       W
-M   WWWWW   W     W   W   W
-M   W   W   WWWW WW   W   W
-M   W   W             W   W
-M   W   WWWWWWWW WWWWWW  WW
-M   WWWWW        W   WW   W
-M       W        W    WW  W
-M       W    W        W   W
-M       W    W     W  W   W
-M            W     W      W
-LWWWWWWWWWWWWWWWWWWWWWWWWWW
+GWWWWWWWWWWWWWWWWWWWWWWWWWD
+M           M     M       M
+M           M     M   M   M
+M    GWWD   LWWW WR   M   M
+M    MVPM             M   M
+M    MBJFWWWWWWW TWWWWZ  WZ
+M    LWWZ        M   WM   M
+M       M        M    FW  M
+M       M    M        M   M
+M       M    M     M  M   M
+M            M     M      M
+LWWWWWWWWWWWWtWWWWWtWWWWWWR
