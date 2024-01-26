@@ -18,6 +18,7 @@ public class MainInterface extends JFrame implements KeyListener {
     private boolean gameStarted;
     private Rectangle slowZone = new Rectangle(2*48+1, 6*48+1, 48, 48);
     private int speed = 10;
+    private boolean isShiftPressed = false;
 
     public MainInterface() {
         super("Dungeon Game");
@@ -51,6 +52,7 @@ public class MainInterface extends JFrame implements KeyListener {
 
     private void moveHero(int speed) {
         checkForSlowZone();
+        speed = isShiftPressed ? 17< : 10;
         switch (hero.getOrientation()) {
             case LEFT:
                 hero.moveIfPossible(-speed, 0, dungeon);
@@ -80,6 +82,9 @@ public class MainInterface extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+            isShiftPressed = true;
+        }
         if (!gameStarted) {
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
@@ -160,6 +165,9 @@ public class MainInterface extends JFrame implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+            isShiftPressed = false;
+        }
         hero.setWalking(false);
     }
 }
