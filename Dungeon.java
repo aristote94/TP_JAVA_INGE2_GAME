@@ -78,6 +78,7 @@ public class Dungeon {
                 s=br.readLine();
             }
         }
+
         catch (Exception e){
             e.printStackTrace();
         }
@@ -89,7 +90,6 @@ public class Dungeon {
 
         respawnListOfThings();
     }
-
 
     private void respawnListOfThings(){
         renderList.clear();
@@ -105,22 +105,6 @@ public class Dungeon {
                 }
             }
         }
-    }
-
-    public void displayDungeonInConsole(HitBox hero){
-        for(int y=0;y<height;y++){
-            for(int x=0;x<width;x++){
-                if (x==(hero.getX()/ tileManager.getWidth()) && y==(hero.getY()/ tileManager.getHeight
-                         ())) {
-                    System.out.print("H");
-                }
-                else {
-                    System.out.print((map[x][y]));
-                }
-            }
-            System.out.println();
-        }
-
     }
 
     public ArrayList<Things> getRenderList() {

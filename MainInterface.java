@@ -16,7 +16,6 @@ public class MainInterface extends JFrame implements KeyListener {
     private long startTime;
     private JLabel timerLabel;
     private boolean gameStarted;
-    private int s, ms;
 
     public MainInterface() {
         super("Dungeon Game");
@@ -111,7 +110,6 @@ public class MainInterface extends JFrame implements KeyListener {
         repaint();
     }
 
-
     private void startGameTimer() {
         startTime = System.currentTimeMillis();
         gameTimer = new Timer(1, e -> updateTimer()); // Déclenche toutes les millisecondes
@@ -125,7 +123,6 @@ public class MainInterface extends JFrame implements KeyListener {
             panel.showTimer = true;
         }
     }
-
 
     private void updateTimer() {
         long elapsedTimeMillis = System.currentTimeMillis() - startTime;

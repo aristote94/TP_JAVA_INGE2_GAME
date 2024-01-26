@@ -18,22 +18,26 @@ public class GameRender extends JPanel {
 
     private void drawStartMessage(Graphics g) {
         g.setFont(new Font("SansSerif", Font.BOLD, 60));
-        g.setColor(Color.red);
+        g.setColor(Color.black);
         String message = "MOVE TO START";
+        String message2 = "MOVE TO START";
         int x = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
         int y = getHeight() / 2;
+        g.drawString(message2, x+3, y+3);
+        g.setColor(Color.red);
         g.drawString(message, x, y);
     }
     private void drawEndMessage(Graphics g) {
         g.setFont(new Font("SansSerif", Font.BOLD, 60));
-        g.setColor(Color.red);
+        g.setColor(Color.white);
         String message;
-
+        //condition d'affichage du succès
         if (sec<18)
             message = "PRETTY NICE MY BOY !!";
         else if (sec>21)
             message = "REALLY SHITTY TIME";
         else message = "YEAH...PRETTY AVERAGE PERFORMANCE";
+        //affichage du message de fin
         int x = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
         int y = getHeight() / 2;
         g.drawString(message, x, y);
