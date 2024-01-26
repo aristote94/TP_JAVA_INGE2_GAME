@@ -26,7 +26,24 @@ public class MainInterface extends JFrame implements KeyListener{
         ActionListener rendering = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 repaint();
+                hero.checkEndOfPotion();
+
+                final int speed=10;
+                if (hero.isWalking()){
+                    switch (hero.getOrientation()){
+                        case LEFT:  hero.moveIfPossible(-speed,0,dungeon);
+                            break;
+                        case RIGHT: hero.moveIfPossible(speed,0,dungeon);
+                            break;
+                        case UP:    hero.moveIfPossible(0,-speed,dungeon);
+                            break;
+                        case DOWN:  hero.moveIfPossible(0,speed,dungeon);
+                            break;
+
+                    }
+                }
             }
         };
         Timer animationTimer = new Timer(50,rendering);
@@ -36,7 +53,6 @@ public class MainInterface extends JFrame implements KeyListener{
 
     }
 
-    @Override
     public void keyTyped(KeyEvent e) {
 
 
@@ -53,6 +69,9 @@ public class MainInterface extends JFrame implements KeyListener{
             case KeyEvent.VK_DOWN:
                 handleDirectionKey(keyCode);
                 break;
+            case KeyEvent.VK_P:
+                hero.useShrinkagePotion();
+                break;
         }
 
         this.repaint();
@@ -61,6 +80,7 @@ public class MainInterface extends JFrame implements KeyListener{
     private void handleDirectionKey(int keyCode) {
         Orientation orientation = getOrientationFromKeyCode(keyCode);
         hero.setOrientation(orientation);
+        hero.setAttitude();
         hero.setWalking(true);
     }
 

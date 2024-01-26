@@ -7,18 +7,19 @@ public final class Hero extends DynamicThings {
     private static volatile Hero instance = null;
 
     private Boolean isWalking = false;
+    private Boolean shrinkagePotion = false;
 
 
     private Hero() {
-        super(120,120, 48,52,40,3,150);
-        try{this.setImage(ImageIO.read(new File("img/heroTileSheet.png")));}
+        super(50,48, 60,80,4,10,150);
+        try{this.setImage(ImageIO.read(new File("img/heroTileSheetLowRes.png")));}
         catch (Exception e){
             e.printStackTrace();
         }
     }
 
 
-    public Boolean getWalking() {
+    public Boolean isWalking() {
         return isWalking;
     }
 
@@ -26,6 +27,25 @@ public final class Hero extends DynamicThings {
 
     public void setWalking(boolean walking) {
         isWalking = walking;
+        animationRunning = walking;
+    }
+
+    private long potionTimeStart=0;
+    public void useShrinkagePotion() {
+        scaleFactor = 0.5;
+        potionTimeStart=System.currentTimeMillis();
+        shrinkagePotion=true;
+        this.getHitBox().setWidth(width*scaleFactor);
+        this.getHitBox().setHeight(height*scaleFactor);
+    }
+
+    public void checkEndOfPotion() {
+        if (System.currentTimeMillis()-potionTimeStart>1500){
+            scaleFactor=1;
+            shrinkagePotion=false;
+            this.getHitBox().setWidth(width);
+            this.getHitBox().setHeight(height);
+        }
     }
 
     /**
@@ -66,6 +86,11 @@ public final class Hero extends DynamicThings {
         return Hero.instance;
 
     }
+
+    public void setAttitude(){
+        currentAttitude= getOrientation().getI();
+    }
+
 
 
 

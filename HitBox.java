@@ -1,10 +1,25 @@
 public class HitBox{
-    private final double height, width;
+    private double height, width;
     private double x, y;
     private String name;
 
+    public void setHeight(double height) {
+        this.height = height;
+    }
 
-    public HitBox(double height,double width,double x, double y){// Dispose
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public HitBox(double height, double width, double x, double y){// Dispose
         this.height = height;
         this.width = width;
         this.x = x;

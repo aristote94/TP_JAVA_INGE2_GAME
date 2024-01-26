@@ -5,6 +5,8 @@ public class AnimatedThings extends SolidThings{
     protected int currentAttitude;
     protected boolean animationRunning;
 
+    protected double scaleFactor = 1;
+
     private int numberOfAttitude;
     private int numberOfFrames;
     private double timeBetweenFrames;
@@ -29,10 +31,12 @@ public class AnimatedThings extends SolidThings{
         g.drawImage(
                 image,
                 (int) x, (int) y,
-                (int) x + 48, (int) y + 52,
-                index * 96, 100 * currentAttitude,
-                (index + 1) * 96, 100 * (currentAttitude + 1),
+                (int) (x + width*scaleFactor), (int) (y + height*scaleFactor),
+                index * width, height * currentAttitude,
+                (index + 1) * width, height * (currentAttitude + 1),
                 null, null
         );
+        g.setColor(Color.RED);
+        g.drawRect((int) hitBox.getX(),(int) hitBox.getY(),(int) hitBox.getWidth(),(int) hitBox.getHeight());
     }
 }

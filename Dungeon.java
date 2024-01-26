@@ -33,9 +33,6 @@ public class Dungeon {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 switch (dungeonArray[i][j]) {
-                    case 'H':
-                        renderList.add(new DynamicThings(1, 1, j * tileManager.getWidth(), i * tileManager.getHeight()));
-                        break;
                     case 'W':
                         renderList.add(new SolidThings(1, 1, j * tileManager.getWidth(), i * tileManager.getHeight()));
                         break;

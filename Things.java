@@ -1,7 +1,7 @@
 import java.awt.*;
 
 public class Things {
-    private final int height,width;
+    protected int height,width;
     protected int x,y;
     protected Image image;
 
