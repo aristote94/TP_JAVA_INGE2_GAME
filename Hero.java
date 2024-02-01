@@ -5,6 +5,7 @@ import java.io.File;
 
 public final class Hero extends DynamicThings {
     private static volatile Hero instance = null;
+    protected Sortilege sortilege = null;
 
     private Boolean isWalking = false;
     private Boolean shrinkagePotion = false;
@@ -12,6 +13,7 @@ public final class Hero extends DynamicThings {
 
     private Hero() {
         super(50,48, 60,80,4,10,150);
+        this.sortilege=new Sortilege(50,48, 60,80,4,10,150);
         try{this.setImage(ImageIO.read(new File("img/heroTileSheetLowRes.png")));}
         catch (Exception e){
             e.printStackTrace();
@@ -30,7 +32,7 @@ public final class Hero extends DynamicThings {
         animationRunning = walking;
     }
 
-    private long potionTimeStart=0;
+  /*  private long potionTimeStart=0;
     public void useShrinkagePotion() {
         scaleFactor = 0.5;
         potionTimeStart=System.currentTimeMillis();
@@ -47,6 +49,8 @@ public final class Hero extends DynamicThings {
             this.getHitBox().setHeight(height*scaleFactor);
         }
     }
+
+   */
 
     /**
      * Constructeur de l'objet.

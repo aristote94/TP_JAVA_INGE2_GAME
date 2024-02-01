@@ -2,6 +2,9 @@ import java.awt.*;
 
 public class SolidThings extends Things{
 
+    protected double scaleFactor = 0.8;
+
+
     public SolidThings(int height, int width, int x, int y) {
         super(height, width, x, y);
         hitBox = new HitBox(height,width,x,y);

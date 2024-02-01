@@ -10,6 +10,7 @@ public class MainInterface extends JFrame implements KeyListener{
     TileManager tileManager = new TileManager(48,48,"./img/tileSet2.png");
     Dungeon dungeon = new Dungeon("./gameData/level1.txt",tileManager);
     Hero hero = Hero.getInstance();
+
     public MainInterface() throws HeadlessException {
 
         super();
@@ -28,18 +29,18 @@ public class MainInterface extends JFrame implements KeyListener{
             public void actionPerformed(ActionEvent e) {
 
                 repaint();
-                hero.checkEndOfPotion();
+                hero.sortilege.checkEndOfPotion();
+                hero.sortilege.checkEndRun();
 
-                final int speed=10;
                 if (hero.isWalking()){
                     switch (hero.getOrientation()){
-                        case LEFT:  hero.moveIfPossible(-speed,0,dungeon);
+                        case LEFT:  hero.moveIfPossible(-hero.speed,0,dungeon);
                             break;
-                        case RIGHT: hero.moveIfPossible(speed,0,dungeon);
+                        case RIGHT: hero.moveIfPossible(hero.speed,0,dungeon);
                             break;
-                        case UP:    hero.moveIfPossible(0,-speed,dungeon);
+                        case UP:    hero.moveIfPossible(0,-hero.speed,dungeon);
                             break;
-                        case DOWN:  hero.moveIfPossible(0,speed,dungeon);
+                        case DOWN:  hero.moveIfPossible(0,hero.speed,dungeon);
                             break;
 
                     }
@@ -70,8 +71,12 @@ public class MainInterface extends JFrame implements KeyListener{
                 handleDirectionKey(keyCode);
                 break;
             case KeyEvent.VK_P:
-                hero.useShrinkagePotion();
+                hero.sortilege.useShrinkagePotion();
                 break;
+            case KeyEvent.VK_SHIFT:
+                hero.sortilege.running();
+                break;
+
         }
 
         this.repaint();

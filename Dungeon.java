@@ -216,6 +216,10 @@ public class Dungeon {
                         renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,13)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
+                    case 'p':
+                        renderList.add(new Things(tileX, tileY, tileManager.getTile(7,7)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
 
 
 

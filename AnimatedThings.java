@@ -6,6 +6,9 @@ public class AnimatedThings extends SolidThings{
     protected boolean animationRunning;
 
     protected double scaleFactor = 0.8;
+    protected Boolean shrinkagePotion = false;
+    protected long potionTimeStart=0;
+    protected int speed = 10;
 
     private int numberOfAttitude;
     private int numberOfFrames;
@@ -23,6 +26,9 @@ public class AnimatedThings extends SolidThings{
     public void setCurrentAttitude(int attitude) {
         this.currentAttitude = attitude;
     }
+
+
+
 
     @Override
     public void draw(Graphics g) {
