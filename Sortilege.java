@@ -33,7 +33,12 @@ public class Sortilege extends AnimatedThings{
         }
     }
     public void running(){
-        Hero.getInstance().speed = 20;
+        Hero.getInstance().speed = 17;//vitesse run
+        timerSortilege=System.currentTimeMillis();
+        checkSortilege=true;
+    }
+    public void speedZone(){
+        Hero.getInstance().speed =22;
         timerSortilege=System.currentTimeMillis();
         checkSortilege=true;
     }
@@ -41,14 +46,14 @@ public class Sortilege extends AnimatedThings{
 
 
     public void slowZoneIn(){
-        Hero.getInstance().speed = 6;
+        Hero.getInstance().speed = 4; //vitesse ralentit
         timerSortilege=System.currentTimeMillis();
         checkSortilege=true;
     }
 
     public void checkEndSortilge(){
-        if (System.currentTimeMillis()-timerSortilege>700){
-            Hero.getInstance().speed =10;
+        if (System.currentTimeMillis()-timerSortilege>500){
+            Hero.getInstance().speed =10; // remise à défault
             checkSortilege = false;
         }
     }

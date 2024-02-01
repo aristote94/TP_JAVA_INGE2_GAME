@@ -216,12 +216,20 @@ public class Dungeon {
                         renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(2,13)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
+                    case 'i':
+                        renderList.add(new SolidThings(tileX, tileY, tileManager.getTile(8,11)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+                    case 'a':
+                        renderList.add(new BoostThings(tileX, tileY, tileManager.getTile(7,7)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
                     case 'p':
-                        renderList.add(new TrapThings(tileX, tileY, tileManager.getTile(7,7)));
+                        renderList.add(new TrapThings(tileX, tileY, tileManager.getTile(3,9)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
                     case 'X':
-                        renderList.add(new EndGameThings(tileX, tileY, tileManager.getTile(0,14)));
+                        renderList.add(new EndGameThings(tileX, tileY, tileManager.getTile(1,9)));
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
 
