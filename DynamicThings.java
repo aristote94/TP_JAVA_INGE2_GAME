@@ -5,6 +5,8 @@ public class DynamicThings extends AnimatedThings{
     private double speedX,speedY;
     private Orientation orientation=Orientation.RIGHT;
 
+    private Boolean endGame = false;
+
 
 
     public DynamicThings(int height, int width, int x, int y, int numberOfAttitude, int numberOfFrames, double timeBetweenFrames) {
@@ -25,10 +27,14 @@ public class DynamicThings extends AnimatedThings{
     }
 
 
+    public Boolean getEndGame() {
+        return endGame;
+    }
+
     public void moveIfPossible(double dx, double dy, Dungeon dungeon) {
 
         Boolean movePossible = true;
-        Boolean endGame = false;
+
 
         this.hitBox.move(dx,dy);
         // Vérifie si la nouvelle position du héros ne provoque pas de collision avec les murs du donjon
@@ -49,6 +55,7 @@ public class DynamicThings extends AnimatedThings{
             if(things instanceof EndGameThings){
                 if(((EndGameThings)things).hitBox.intersect(this.hitBox)){
                     endGame = true;
+
                     break;
                 }
             }
@@ -71,6 +78,8 @@ public class DynamicThings extends AnimatedThings{
             hitBox.move(-dx,-dy);
 
         }
+
+
 
     }
 }
