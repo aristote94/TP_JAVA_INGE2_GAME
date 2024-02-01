@@ -4,8 +4,11 @@ public class Sortilege extends AnimatedThings{
 
     protected Boolean Slowzone =false;
 
-    protected boolean checkRun = false;
-    protected long timerRunning =0;
+    protected boolean checkSortilege = false;
+
+
+    protected long timerSortilege=0;;
+
 
 
 
@@ -31,19 +34,23 @@ public class Sortilege extends AnimatedThings{
     }
     public void running(){
         Hero.getInstance().speed = 20;
-        timerRunning=System.currentTimeMillis();
-        checkRun=true;
+        timerSortilege=System.currentTimeMillis();
+        checkSortilege=true;
     }
 
-    public void checkEndRun(){
-        if (System.currentTimeMillis()-timerRunning>1500){
-           Hero.getInstance().speed =10;
-            checkRun = false;
+
+
+    public void slowZoneIn(){
+        Hero.getInstance().speed = 6;
+        timerSortilege=System.currentTimeMillis();
+        checkSortilege=true;
+    }
+
+    public void checkEndSortilge(){
+        if (System.currentTimeMillis()-timerSortilege>700){
+            Hero.getInstance().speed =10;
+            checkSortilege = false;
         }
     }
-
-
-
-
 
 }

@@ -8,7 +8,7 @@ public final class Hero extends DynamicThings {
     protected Sortilege sortilege = null;
 
     private Boolean isWalking = false;
-    private Boolean shrinkagePotion = false;
+
 
 
     private Hero() {

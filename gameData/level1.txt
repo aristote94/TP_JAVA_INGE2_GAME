@@ -7,6 +7,6 @@ FWW  MBJFWWWWWWW TWWWWZ  WZ
 M    LWWZ        M   WM   M
 M       M        M    FW  M
 M       M    M        M   M
-M       M    M     M  M   M
-M            M     M      M
+M       M    M     M  M   X
+M            M     M      X
 LWWWWWWWWWWWWtWWWWWtWWWWWWR

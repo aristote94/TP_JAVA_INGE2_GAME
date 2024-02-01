@@ -28,6 +28,7 @@ public class DynamicThings extends AnimatedThings{
     public void moveIfPossible(double dx, double dy, Dungeon dungeon) {
 
         Boolean movePossible = true;
+        Boolean EndGame = false;
 
         this.hitBox.move(dx,dy);
         // Vérifie si la nouvelle position du héros ne provoque pas de collision avec les murs du donjon
@@ -35,6 +36,19 @@ public class DynamicThings extends AnimatedThings{
             if (things instanceof SolidThings){
                 if(((SolidThings) things).hitBox.intersect(this.hitBox)){
                     movePossible=false;
+                    break;
+                }
+            }
+            if (things instanceof TrapThings){
+                if(((TrapThings) things).hitBox.intersect(this.hitBox)){
+                    Hero.getInstance().sortilege.slowZoneIn();
+                    break;
+                }
+
+            }
+            if(things instanceof EndGameThings){
+                if(((TrapThings)things).hitBox.intersect(this.hitBox)){
+                    EndGame = true;
                     break;
                 }
             }
@@ -50,5 +64,6 @@ public class DynamicThings extends AnimatedThings{
         }
 
     }
-
 }
+
+

@@ -22,6 +22,7 @@ public class MainInterface extends JFrame implements KeyListener{
         dungeon.displayDungeonInConsole(hero.hitBox);
         GameRender gameRender = new GameRender(dungeon,hero);
         this.add(gameRender);
+
         /*while (true)
            gameRender.paintComponent(getGraphics());*/
         ActionListener rendering = new ActionListener() {
@@ -30,7 +31,8 @@ public class MainInterface extends JFrame implements KeyListener{
 
                 repaint();
                 hero.sortilege.checkEndOfPotion();
-                hero.sortilege.checkEndRun();
+                hero.sortilege.checkEndSortilge();
+
 
                 if (hero.isWalking()){
                     switch (hero.getOrientation()){
