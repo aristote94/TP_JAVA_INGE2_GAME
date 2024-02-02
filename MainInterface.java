@@ -13,6 +13,7 @@ public class MainInterface extends JFrame implements KeyListener{
     private long startTime;
     private JLabel timerLabel = new JLabel("Time : 0");
     private boolean gameStarted;
+    private long timerBonusMessage =0;
     TileManager tileManager = new TileManager(48,48,"./img/tileSet2.png");
     Dungeon dungeon = new Dungeon("./gameData/level1.txt",tileManager);
     Hero hero = Hero.getInstance();
@@ -40,8 +41,20 @@ public class MainInterface extends JFrame implements KeyListener{
                     gameRender.showEndMessage = true;
                     gameRender.showTimer = true;
                 }
+                if (Hero.getInstance().getBonusMessage()){
+                    gameRender.showBonus =true;
+
+                    if (timerBonusMessage == 0) {
+                        timerBonusMessage = System.currentTimeMillis();}
+                }
+                else{
+                    if(System.currentTimeMillis()-timerBonusMessage>1000){
+                        gameRender.showBonus =false;
+
+                    }
+                }
                 repaint();
-                hero.sortilege.checkEndOfPotion();
+                //hero.sortilege.checkEndOfPotion();
                 hero.sortilege.checkEndSortilge();
 
 
@@ -75,8 +88,10 @@ public class MainInterface extends JFrame implements KeyListener{
     }
 
 
-    private void updateTimer() {
-        long elapsedTimeMillis = System.currentTimeMillis() - startTime;
+
+
+    public void updateTimer() {
+        long elapsedTimeMillis = System.currentTimeMillis() - startTime-Hero.getInstance().getSubstractTime();
         long elapsedSeconds = elapsedTimeMillis / 1000;
         long elapsedMillis = elapsedTimeMillis % 1000;
 
