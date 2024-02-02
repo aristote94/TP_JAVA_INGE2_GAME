@@ -11,6 +11,9 @@ public class GameRender extends JPanel {
     public boolean showTimer = false;
     public boolean showBonus = false;
     private String timeString = "00.000s";
+
+    private boolean bonusMessage =false;
+    private long bonusMessageTimer=0;
     private long sec;
     public GameRender(Dungeon dungeon, DynamicThings hero) {
         this.dungeon = dungeon;
