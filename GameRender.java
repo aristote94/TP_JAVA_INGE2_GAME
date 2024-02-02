@@ -9,6 +9,7 @@ public class GameRender extends JPanel {
     public boolean showStartMessage = true;
     public boolean showEndMessage = false;
     public boolean showTimer = false;
+    public boolean showBonus = false;
     private String timeString = "00.000s";
     private long sec;
     public GameRender(Dungeon dungeon, DynamicThings hero) {
@@ -36,6 +37,19 @@ public class GameRender extends JPanel {
         else if (sec>21)
             message = "REALLY SHITTY TIME";
         else message = "YEAH...PRETTY AVERAGE PERFORMANCE";
+        //affichage du message de fin
+        int x = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
+        int y = getHeight() / 2;
+        g.drawString(message, x, y);
+    }
+    private void printBonusMessage(Graphics g) {
+        g.setFont(new Font("SansSerif", Font.BOLD, 60));
+        g.setColor(Color.GREEN);
+        String message=null;
+        //condition d'affichage du succès
+        if (Hero.getInstance().getBonusMessage())
+            message = "Bonus : -10sec";
+
         //affichage du message de fin
         int x = (getWidth() - g.getFontMetrics().stringWidth(message)) / 2;
         int y = getHeight() / 2;
@@ -75,6 +89,9 @@ public class GameRender extends JPanel {
         }
         if (showTimer) {
             drawTime(g);
+        }
+        if(showBonus){
+            printBonusMessage(g);
         }
     }
 

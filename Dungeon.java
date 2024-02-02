@@ -233,6 +233,11 @@ public class Dungeon {
                         //renderList.add(new SolidThings(32, 32, tileX, tileY));
                         break;
 
+                    case 'y':
+                        renderList.add(new TimeThings(tileX, tileY, tileManager.getTile(3,0)));
+                        //renderList.add(new SolidThings(32, 32, tileX, tileY));
+                        break;
+
 
 
                     case ' ':

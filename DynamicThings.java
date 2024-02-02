@@ -6,6 +6,8 @@ public class DynamicThings extends AnimatedThings{
     private Orientation orientation=Orientation.RIGHT;
 
     private Boolean endGame = false;
+    private int substractTime=0;
+    private Boolean bonusMessage = false;
 
 
 
@@ -26,6 +28,14 @@ public class DynamicThings extends AnimatedThings{
         this.orientation = orientation;
     }
 
+
+    public Boolean getBonusMessage() {
+        return bonusMessage;
+    }
+
+    public int getSubstractTime() {
+        return substractTime;
+    }
 
     public Boolean getEndGame() {
         return endGame;
@@ -55,6 +65,15 @@ public class DynamicThings extends AnimatedThings{
             if(things instanceof EndGameThings){
                 if(((EndGameThings)things).hitBox.intersect(this.hitBox)){
                     endGame = true;
+
+                    break;
+                }
+            }
+            if(things instanceof TimeThings){
+                if(((TimeThings)things).hitBox.intersect(this.hitBox)){
+
+                    substractTime = 10000;
+                    bonusMessage =true;
 
                     break;
                 }
